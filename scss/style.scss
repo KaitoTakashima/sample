@@ -1,0 +1,253 @@
+/* Fundation
+---------------------------------------------------------*/
+@import "foundation/_base";
+@import "foundation/_mixin";
+
+
+/* layout
+---------------------------------------------------------*/
+@import "layout/_header";
+@import "layout/_main";
+
+
+/* component
+---------------------------------------------------------*/
+@import "object/component/btn";
+
+
+/* project
+---------------------------------------------------------*/
+@import "object/project/_header__title";
+@import "object/project/_header__nav";
+
+
+/* utility
+---------------------------------------------------------*/
+
+
+
+/* header (z-index: 1000 ~ 1999)
+-------------------------------------------------------------------------------------*/
+//変数
+$header__height--PC: 70px;
+$header__height--mobile: 50px;
+
+    
+    
+        
+
+    
+    .ham-btn{
+        display: none;
+        position: relative;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        @include hamburger{
+            display: block;
+        };
+        &__line{
+            position: absolute;
+            left: 14px;     //３本戦全体の位置
+            height: 2px;    //線の太さ
+            width: 23px;    //線の長さ    
+            background-color: #2498b3;  //線の色
+            transition: all 0.3s;
+            &:nth-of-type(1){
+                top: 15px;
+            }
+            &:nth-of-type(2){
+                top: 24px;
+            }
+            &:nth-of-type(3){
+                top: 33px;
+            }
+        }
+        &.active{   //ハンバーガーボタンがクリックされたら
+            background: #2498b3;
+            transition: all 0.3s;
+            .ham-btn__line{
+                background: #fff;
+                transition: all 0.3s;
+                &:nth-of-type(1){
+                    transform: rotate(45deg);
+                    top: 25px;
+                }
+                &:nth-of-type(2){
+                    display: none;
+                }
+                &:nth-of-type(3){
+                    transform: rotate(-45deg);
+                    top: 25px;
+                }
+            }
+        }
+    }
+
+
+/* main (z-index: 0 ~ 999)
+--------------------------------------------------------------------------------*/
+//変数
+.main{
+    display: none;
+}
+
+$smart-phone-height: 320px;
+$inner-box: 130px;
+
+.maintop{
+    background: url(../image/bg-hero3.png) no-repeat center center / cover fixed;
+    height: 650px;
+    position: relative;
+    @include smart-phone{
+        height: $smart-phone-height;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position-y: -25px;
+    }
+    .stacking{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    .layer1{
+        background: url(../image/bg-hero1.png) no-repeat center center / auto;
+        height: 650px;
+        z-index: 200;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        @include smart-phone{
+            height: $smart-phone-height;
+            background-size: cover;
+            background-position-y: -25px;
+        }
+        .inner-box{
+            margin-top: 80px;
+            padding: 43px 40px 19px;
+            border-radius: 10px;
+            text-align: center;
+            background:#fff;
+            img{
+                margin-bottom: 0.5rem;
+                width: 280px;
+            }
+            p{
+                margin: 1.3em 0 0.5em;
+                font-size: 1.6rem;
+                line-height: 28px;
+            }
+            .btn--highlight{
+                a{
+                    margin: 1.3em 0 0.5em;
+                    background-color: #2498b3;
+                    color: #fff;
+                    font-size: 1.7rem;
+                    padding: 24px 0;
+                    border-radius: 5px;
+                    display: block;
+                }
+            }
+            @include smart-phone{
+                position: relative;
+                z-index: 500;
+                top: 160px;
+                margin: 0;
+                padding: 0;
+                height: 160px;
+                width: 100%;
+                border-radius: 0;
+                text-align: center;
+                img{
+                    display: none;
+                }
+                p{
+                    margin: 1em 0  0.5em 0;
+                    font-size: 1.3rem;
+                    line-height: 2.1rem;
+                    font-family: "Noto Sans JP", arial, sans-serif;
+                }
+                .btn--highlight{
+                    height: 40px;
+                    width: 230px;
+                    margin: 0 auto 0 auto;
+                    a{
+                        font-size: 1.6rem;
+                        height: auto;
+                        width: auto;
+                        margin: 1rem 0 1rem 0;
+                        padding: 1rem 1.2rem 1rem 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+    .layer2{
+        background: url(../image/bg-hero2.png) no-repeat center center / auto ;
+        height: 650px;
+        z-index: 100;
+        @include smart-phone{
+            height: $smart-phone-height;
+            background-size: cover;
+            background-position-y: -25px;
+        }
+    }
+}
+.maintop__back-black{
+    background: #000;
+    height: 430px;
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: -200px;
+        position: relative;
+        z-index: 700;
+        .content{
+            width: 300px;
+            margin: 0 10px 0 10px;
+            padding: 0 10px 0 10px;
+            @include content__description{
+                width: 30%;
+            }
+            .icon{
+                display: flex;
+                justify-content: center;
+                width: 230px;
+                height: 230px;
+                margin-left: auto;
+                margin-right: auto;
+                border: 6px black solid;
+                border-radius: 50%;
+                background-color: #fff;
+                font-weight: 10;
+                i{
+                    padding-top: 56px;
+                    -webkit-text-stroke: 3px #fff;
+                }
+            }
+            &__title{
+                font-size: 2.4rem;
+                color: #fff;
+                margin: 0.2em 0 0 0;
+            }
+            &__description{
+                font-size: 1.6rem;
+                color: #fff;
+                margin: 0.5em 0 0 0;
+            }
+        }
+    }
+    @include smart-phone{
+        height: auto;
+        padding: 50px 0;
+        .wrapper{
+            display: block;
+            margin: 0;
+            .content{
+                width: 100%;
+                margin: 30px 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+$header__height--PC: 70px;
+$header__height--mobile: 50px;
+
+.l-header{
+    position: relative;
+    z-index: 1000;
+    height: $header__height--PC;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include hamburger{
+        height: $header__height--mobile;
+    };
+}
