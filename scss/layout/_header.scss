@@ -8,6 +8,7 @@ $header__height--mobile: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color:red;
     @include hamburger{
         height: $header__height--mobile;
     };
